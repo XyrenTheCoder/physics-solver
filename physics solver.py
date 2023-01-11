@@ -35,12 +35,12 @@ def et(P : str = None, Q : str = None, t : str = None):
     if P == None and Q != None and t != None:
         P = Q / t
         #base unit: watt
-        return print(f"{'%.5g' % (P / 1000000)} MW or {'%.5g' % (P / 1000)} kW or {'{:.4e}'.format(P)} W")
+        return print(f"{'%.5g' % (P / 1000000)} MW or {'%.5g' % (P / 1000)} kW or {'%.5g' % (P)} W")
     
     elif P != None and Q == None and t != None:
         Q = P * t
         #base unit: joule
-        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'{:.4e}'.format(Q)} J")
+        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'%.5g' % (Q)} J")
         
     elif P != None and Q != None and t == None:
         t = Q / P
@@ -78,12 +78,12 @@ def hc(Q : str = None, C : str = None, dT : str = None):
     if Q == None and C != None and dT != None:
         Q = C * dT
         #base unit: joule
-        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'{:.4e}'.format(Q)} J")
+        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'%.5g' % (Q)} J")
     
     elif Q != None and C == None and dT != None:
         C = Q / dT
         #base unit: joule degree celsius^-1
-        return print(f"{'%.5g' % (C / 1000000)} MJ/°C or {'%.5g' % (C / 1000)} kJ/°C or {'{:.4e}'.format(C)} J/°C")
+        return print(f"{'%.5g' % (C / 1000000)} MJ/°C or {'%.5g' % (C / 1000)} kJ/°C or {'%.5g' % (C)} J/°C")
         
     elif Q != None and C != None and dT == None:
         dT = Q / C
@@ -130,7 +130,7 @@ def shc(Q : str = None, m : str = None, c : str = None, dT : str = None):
         print(m, c, dT)
         Q = m * c * dT
         #base unit: joule
-        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'{:.4e}'.format(Q)} J")
+        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'%.5g' % (Q)} J")
     
     elif Q != None and m == None and c != None and dT != None:
         m = Q / c / dT
@@ -140,7 +140,7 @@ def shc(Q : str = None, m : str = None, c : str = None, dT : str = None):
     elif Q != None and m != None and c == None and dT != None:
         c = Q / m / dT
         #base unit: joule kg^-1 degree celsius^-1
-        return print(f"{'%.5g' % (c / 1000000)} MJ kg-1 °C-1 or {'%.5g' % (c /1000)} kJ kg-1 °C-1 or {'{:.4e}'.format(c)} J kg-1 °C-1")
+        return print(f"{'%.5g' % (c / 1000000)} MJ kg-1 °C-1 or {'%.5g' % (c /1000)} kJ kg-1 °C-1 or {'%.5g' % (c)} J kg-1 °C-1")
     
     elif Q != None and m != None and c != None and dT == None:
         dT = Q / m / c
@@ -204,12 +204,12 @@ def slh(l : str = None, Q : str = None, m : str = None):
     if l == None and Q != None and m != None:
         l = Q / m
         #base unit: J kg-1
-        return print(f"{'%.5g' % (l / 1000000)} MJ kg-1 or {'%.5g' % (l /1000)} kJ kg-1 or {'{:.4e}'.format(l)} J kg-1")
+        return print(f"{'%.5g' % (l / 1000000)} MJ kg-1 or {'%.5g' % (l /1000)} kJ kg-1 or {'%.5g' % (l)} J kg-1")
     
     elif l != None and Q == None and m != None:
         Q = l * m
         #base unit: joule
-        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'{:.4e}'.format(Q)} J")
+        return print(f"{'%.5g' % (Q / 1000000)} MJ or {'%.5g' % (Q / 1000)} kJ or {'%.5g' % (Q)} J")
 
     elif l != None and Q != None and m == None:
         m = Q / l
@@ -265,7 +265,7 @@ def te(E : str = None, m : str = None, l : str = None, c : str = None, dT : str 
     if E == None and m != None and l != None and c != None and dT != None:
         E = (m * l) + (m * c * dT)
         #base unit: joule
-        return print(f"{'%.5g' % (E / 1000000)} MJ or {'%.5g' % (E / 1000)} kJ or {'{:.4e}'.format(E)} J")
+        return print(f"{'%.5g' % (E / 1000000)} MJ or {'%.5g' % (E / 1000)} kJ or {'%.5g' % (E)} J")
 
     elif E != None and m == None and l != None and c != None and dT != None:
         m = E / (l + (c * dT))
@@ -275,19 +275,107 @@ def te(E : str = None, m : str = None, l : str = None, c : str = None, dT : str 
     elif E != None and m != None and l == None and c != None and dT != None:
         l = (E / m) - (c * dT)
         #base unit: joule kg-1
-        return print(f"{'%.5g' % (l / 1000000)} MJ kg-1 or {'%.5g' % (l /1000)} kJ kg-1 or {'{:.4e}'.format(l)} J kg-1")
+        return print(f"{'%.5g' % (l / 1000000)} MJ kg-1 or {'%.5g' % (l /1000)} kJ kg-1 or {'%.5g' % (l)} J kg-1")
     
     elif E != None and m != None and l != None and c == None and dT != None:
         c = ((E / m) - l) / dT
         #base unit: joule kg^-1 degree celsius^-1
-        return print(f"{'%.5g' % (c / 1000000)} MJ kg-1 °C-1 or {'%.5g' % (c /1000)} kJ kg-1 °C-1 or {'{:.4e}'.format(c)} J kg-1 °C-1")
+        return print(f"{'%.5g' % (c / 1000000)} MJ kg-1 °C-1 or {'%.5g' % (c /1000)} kJ kg-1 °C-1 or {'%.5g' % (c)} J kg-1 °C-1")
     
     elif E != None and m != None and l != None and c != None and dT == None:
         dT = ((E / m) - l) / c
         #base unit: degree celsius
         return print(f"{'%.5g' % (dT)} °C")
 
-#
+#pressure force
+def pf(p : str = None, F : str = None, A : str = None):
+    if p == None: pass
+    elif p.endswith("MPa") or p.endswith("mpa") or p.endswith("N m-2") or p.endswith("n m-2"):
+        p = float(p.split()[0]) * 1000000
+    elif p.endswith("kPa") or p.endswith("kpa"):
+        p = float(p.split()[0]) * 1000
+    elif p.endswith("Pa") or p.endswith("pa"):
+        p = float(p.split()[0])
+    else:
+        p = float(p)
+
+    if F == None: pass
+    elif F.endswith("N") or F.endswith("n"):
+        F = float(F.split()[0])
+    else:
+        F = float(F)
+
+    if A == None: pass
+    elif A.endswith("cm^2"):
+        A = float(A.split()[0]) * 10000
+    elif A.endswith("m^2"):
+        A = float(A.split()[0])
+    else:
+        A = float(A)
+
+    if p == None and F != None and A != None:
+        p = F / A
+        #base unit: Pa
+        return print(f"{'%.5g' % (p / 1000)} kPa or {'%.5g' % (p)} Pa")
+
+    elif p != None and F == None and A != None:
+        F = p * A
+        #base unit: N
+        return print(f"{'%.5g' % (F)} N")
+
+    elif p != None and F != None and A == None:
+        A = F / p
+        #base unit: m^2
+        return print(f"{'%.5g' % (A)} m^2 or {'%.5g' % (A * 10000)} cm^2")
+
+#boyle's law
+def bl(p1 : str = None, V1 : str = None, p2 : str = None, V2 : str = None):
+    if p1 == None: pass
+    elif p1.endswith("MPa") or p1.endswith("mpa") or p1.endswith("N m-2") or p1.endswith("n m-2"):
+        p1 = float(p1.split()[0]) * 1000000
+    elif p1.endswith("kPa") or p1.endswith("kpa"):
+        p1 = float(p1.split()[0]) * 1000
+    elif p1.endswith("Pa") or p1.endswith("pa"):
+        p1 = float(p1.split()[0])
+    else:
+        p1 = float(p1)
+
+    if V1 == None: pass
+    elif V1.endswith("cm^3"):
+        V1 = float(V1.split()[0])
+    elif V1.endswith("m^3"):
+        V1 = float(V1.split()[0]) * 1000000
+    else:
+        V1 = float(V1)
+
+    if p2 == None: pass
+    elif p2.endswith("MPa") or p2.endswith("mpa") or p2.endswith("N m-2") or p2.endswith("n m-2"):
+        p2 = float(p2.split()[0]) * 1000000
+    elif p2.endswith("kPa") or p2.endswith("kpa"):
+        p2 = float(p2.split()[0]) * 1000
+    elif p2.endswith("Pa") or p2.endswith("pa"):
+        p2 = float(p2.split()[0])
+    else:
+        p2 = float(p2)
+
+    if V2 == None: pass
+    elif V2.endswith("cm^3"):
+        V2 = float(V2.split()[0])
+    elif V2.endswith("m^3"):
+        V2 = float(V2.split()[0]) * 1000000
+    else:
+        V2 = float(V2)
+
+    if p1 == None and V1 != None and p2 != None and V2 != None:
+        p1 = (p2 * V2) / V1
+        #base unit: Pa
+        return print(f"{'%.5g' % (p1 / 1000)} kPa or {'%.5g' % (p1)} Pa")
+
+    elif p1 != None and V1 == None and p2 != None and V2 != None:
+        V1 = (p2 * V2) / p1
+        #base unit: cm^3 or m^3 because idk which one is the common one
+        return print(f"{'%.5g' % (V1 / 1000000000)} m^3 or {'%.5g' % (V1 / 1000)} cm^3")
+
 
 while True:
     inp = input(">> ")
