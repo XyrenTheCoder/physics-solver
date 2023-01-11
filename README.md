@@ -1,2 +1,2 @@
 # physics-solver
-A simple Physics question solver.
+A simple Physics question solver. (wip)
