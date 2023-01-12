@@ -86,6 +86,7 @@ Constants are being saved inside `constants.py`.
 <p align=center>=====CONVERTERS=====</p>
 <hr>
 
+*(Sorry there's no Celsius to Celsius, Fahrenheit to Fahrenheit, and Kelvin to Kelvin)*
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
 - Energy (Q) to Power (P): P = Q / t -> `QtoP(Q: Energy, t: Time)`
 - Degrees Celsius (°C) to Fahrenheit (°F): F = C * 1.8 + 32 -> `CtoF(degc: Celsius)`
