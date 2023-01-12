@@ -12,7 +12,7 @@ A simple Physics question solver. (wip)
 - Specific latent heat: Q = ml -> `slc(Q: Energy, t: Time)`
 - Total energy: E = ml + mcΔT -> `te(E: Total energy, m: Mass, l: Latent heat, c: Specific heat capacity, dT: Temperature changes)`
 - Total energy2 : E = ml + CΔT -> 
-`te2(E: Total energy, m: Mass, l: Latent heat, C: Heat capacity, dT: Temperature changes)`
+- `te2(E: Total energy, m: Mass, l: Latent heat, C: Heat capacity, dT: Temperature changes)`
 
 <hr>
 <p align=center>=====PRESSURE=====</p>
