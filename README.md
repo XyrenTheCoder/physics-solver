@@ -5,17 +5,17 @@ A simple Physics question solver. (wip)
 
 <hr>
 
-0. Leave parameter blank if it is an unknown. (note: Only **one** unknown per function)
+0. Leave parameter blank if it is an unknown. (note: Only ***one*** unknown per function)
 
 <hr>
 
 e.g. Finding the energy produced:<br>
 `et(P = '200 W', t = '30 s')`<br>
-> Value of Q equals to output: `0.006 MJ or 6 kJ or 6000 J`
+> Value of *Q* equals to output: `0.006 MJ or 6 kJ or 6000 J`
 
 e.g. Finding the power needed:<br>
 `et(Q = '6 kJ', t = '30 s')`<br>
-> Value of P equals to output: `0.0002 MW or 0.2 kW or 200 W`
+> Value of *P* equals to output: `0.0002 MW or 0.2 kW or 200 W`
 
 <hr>
 
@@ -23,17 +23,17 @@ e.g. Finding the power needed:<br>
 
 <hr>
 
-e.g. Watt for power and seconds for time<br>
+e.g. *Watt* for *power* and *seconds* for *time*<br>
 > `et(P = '200', t = '30')`
 
-e.g. Joules for energy (note: In this case, you **must** convert `'6 kJ'` to `'6000 J'` first in order to operate correctly as Joule is the basic unit)<br>
+e.g. *Joules* for *energy* (note: In this case, you ***must*** convert `'6 kJ'` to `'6000 J'` first in order to operate correctly as *Joule* is the basic unit)<br>
 > `et(Q = '6000', t = '30')`
 
 <hr>
 
-Avaliable units (**all** lowercase are accepted):
+Avaliable units (***all*** lowercase are accepted):
 - `MW`, `kW`, `W` for *P (power)*
-- `MJ`, `kJ`, `J` for Q and E(energy)
+- `MJ`, `MW h`, `kJ`, `kW h`, `J`, `W h` for Q and E(energy)
 - `h`, `mins`, `s` for t (time)
 - `MJ degC-1`, `kJ degC-1`, `J degC-1` for C (heat capacity)
 - `degC`, `degK` for T (Temperature)
