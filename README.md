@@ -17,6 +17,9 @@ A simple Physics question solver. (wip)
 <p align=center>=====PRESSURE=====</p>
 <hr>
 
+- Pressure force: p = F / A -> `pf(p: Pressure, F: Force, A: Area)`
+- Boyle's law: p_1V_1 = p_2V_2
+
 ### converter
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
 - Energy (Q) to Power (P): P = Q / t -> `QtoP(Q: Energy, t: Time)`
