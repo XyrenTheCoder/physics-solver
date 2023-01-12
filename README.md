@@ -34,6 +34,7 @@ e.g. Joules for energy (note: In this case, you **must** convert `'6 kJ'` to `'6
 Avaliable units include:
 - MW, kW, W for P (power)
 - MJ, kJ, J for Q (energy)
+
 ... etc.
 
 ## functions
@@ -56,8 +57,19 @@ Avaliable units include:
 - Pressure force: p = F / A -> `pf(p: Pressure, F: Force, A: Area)`
 - Boyle's law: p<sub>1</sub>V<sub>1</sub> = p<sub>2</sub>V<sub>2</sub> -> `bl(p1: Pressure before, V1: Volume before, p2: Pressure after, V2: Volume after)`
 - Pressure law: p<sub>1</sub> / T<sub>1</sub> = p<sub>2</sub> / T<sub>2</sub> -> `pl(p1: Pressure before, T1: Temperature before, p2: Pressure after, T2: Temperature after)`
+- Charles' law: V<sub>1</sub> / T<sub>1</sub> = V<sub>2</sub> / T<sub>2</sub> -> `cl(V1: Volume before, T1: Temperature before, V2: Volume after, T2: Temperature after)`
 
-### converter
+<hr>
+<p align=center>=====GAS=====</p>
+<hr>
+
+- General gas law: pV = nRT -> `ggl(p: Pressure, V: Volume, n: Mole number, T: Temperature)`
+- Transformed ratio formula: p<sub>1</sub>V<sub>1</sub> / n<sub>1</sub>T<sub>1</sub> = p<sub>2</sub>V<sub>2</sub> / n<sub>2</sub>T<sub>2</sub> -> `ggl2(p1: Pressure before, V1: Volume before, n1: Mole before, T1: Temperature before, p2: Pressure after, V2: Volume after, n2: Mole after, T2: Temperature after)`
+
+<hr>
+<p align=center>=====CONVERTERS=====</p>
+<hr>
+
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
 - Energy (Q) to Power (P): P = Q / t -> `QtoP(Q: Energy, t: Time)`
 - Degrees Celsius (°C) to Kelvin (K): K = C + 273 -> `CtoK(degc: Celsius)`
