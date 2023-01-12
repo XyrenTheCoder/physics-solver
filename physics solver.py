@@ -1,5 +1,86 @@
 from constants import R
 
+#----------converters----------#
+#power to energy
+def PtoQ(P : str, t : str):
+    if P == None: pass
+    elif P.endswith("MW") or P.endswith("mw"):
+        P = float(P.split()[0]) * 1000000
+    elif P.endswith("kW") or P.endswith("kw"):
+        P = float(P.split()[0]) * 1000
+    elif P.endswith("W") or P.endswith("w"):
+        P = float(P.split()[0])
+    else:
+        P = float(P)
+
+    if t == None: pass
+    elif t.endswith("h"):
+        t = float(t.split()[0]) * 3600
+    elif t.endswith("mins"):
+        t = float(t.split()[0]) * 60
+    elif t.endswith("s"):
+        t = float(t.split()[0])
+    else:
+        t = float(t)
+        
+    return print(f"{'%.5g' % (P * t / 1000000)} MJ or {'%.5g' % (P * t / 1000)} kJ or {'%.5g' % (P * t)} J")
+
+#energy to power
+def QtoP(Q : str, t : str):
+    if Q == None: pass
+    elif Q.endswith("MJ") or Q.endswith("mj") or Q.endswith("MW h") or Q.endswith("mw h"):
+        Q = float(Q.split()[0]) * 1000000
+    elif Q.endswith("kJ") or Q.endswith("kj") or Q.endswith("kW h") or Q.endswith("kw h"):
+        Q = float(Q.split()[0]) * 1000
+    elif Q.endswith("J") or Q.endswith("j") or Q.endswith("W h") or Q.endswith("w h"):
+        Q = float(Q.split()[0])
+    else:
+        Q = float(Q)
+
+    if t == None: pass
+    elif t.endswith("h"):
+        t = float(t.split()[0]) * 3600
+    elif t.endswith("mins"):
+        t = float(t.split()[0]) * 60
+    elif t.endswith("s"):
+        t = float(t.split()[0])
+    else:
+        t = float(t)
+        
+    return print(f"{'%.5g' % (Q / t / 1000000)} MJ or {'%.5g' % (Q / t / 1000)} kJ or {'%.5g' % (Q / t)} J")
+
+#celsius to fahrenheit
+def CtoF(degc : float):
+    degf = degc * 1.8 + 32
+    return print(f"{degf} °F")
+
+#celsius to kelvin
+def CtoK(degc : float):
+    degk = degc + 273
+    return print(f"{degk} K")
+
+#fahrenheit to celsius
+def FtoC(degf : float):
+    degc = degf / 1.8 - 32
+    return print(f"{degc} °C")
+
+#fahrenheit to kelvin
+def FtoK(degf : float):
+    degk = (degf / 1.8 - 32) - 273
+    return print(f"{degk} K")
+
+#kelvin to celsius
+def KtoC(degk : float):
+    degc = degk - 273
+    return print(f"{degc} °C")
+
+#kelvin to fahrenheit
+def KtoF(degk : float):
+    degf = (degk - 273) * 1.8 + 32
+    return print(f"{degf} °F")
+#----------end of converters----------#
+
+#----------physics functions----------#
 #energy transfer
 def et(P : str = None, Q : str = None, t : str = None):
     if P == None: pass
@@ -146,54 +227,6 @@ def shc(Q : str = None, m : str = None, c : str = None, dT : str = None):
         dT = Q / m / c
         #base unit: degree celsius
         return print(f"{'%.5g' % (dT)} °C")
-
-#power to energy
-def PtoQ(P : str, t : str):
-    if P == None: pass
-    elif P.endswith("MW") or P.endswith("mw"):
-        P = float(P.split()[0]) * 1000000
-    elif P.endswith("kW") or P.endswith("kw"):
-        P = float(P.split()[0]) * 1000
-    elif P.endswith("W") or P.endswith("w"):
-        P = float(P.split()[0])
-    else:
-        P = float(P)
-
-    if t == None: pass
-    elif t.endswith("h"):
-        t = float(t.split()[0]) * 3600
-    elif t.endswith("mins"):
-        t = float(t.split()[0]) * 60
-    elif t.endswith("s"):
-        t = float(t.split()[0])
-    else:
-        t = float(t)
-        
-    return print(f"{'%.5g' % (P * t / 1000000)} MJ or {'%.5g' % (P * t / 1000)} kJ or {'%.5g' % (P * t)} J")
-
-#energy to power
-def QtoP(Q : str, t : str):
-    if Q == None: pass
-    elif Q.endswith("MJ") or Q.endswith("mj") or Q.endswith("MW h") or Q.endswith("mw h"):
-        Q = float(Q.split()[0]) * 1000000
-    elif Q.endswith("kJ") or Q.endswith("kj") or Q.endswith("kW h") or Q.endswith("kw h"):
-        Q = float(Q.split()[0]) * 1000
-    elif Q.endswith("J") or Q.endswith("j") or Q.endswith("W h") or Q.endswith("w h"):
-        Q = float(Q.split()[0])
-    else:
-        Q = float(Q)
-
-    if t == None: pass
-    elif t.endswith("h"):
-        t = float(t.split()[0]) * 3600
-    elif t.endswith("mins"):
-        t = float(t.split()[0]) * 60
-    elif t.endswith("s"):
-        t = float(t.split()[0])
-    else:
-        t = float(t)
-        
-    return print(f"{'%.5g' % (Q / t / 1000000)} MJ or {'%.5g' % (Q / t / 1000)} kJ or {'%.5g' % (Q / t)} J")
 
 #specific latent heat
 def slh(l : str = None, Q : str = None, m : str = None):
@@ -481,16 +514,6 @@ def bl(p1 : str = None, V1 : str = None, p2 : str = None, V2 : str = None):
         #base unit: cm^3 or m^3 (if the input value of V1 is m^3, take m^3 as common unit (use the same unit as input))
         return print(f"{'%.5g' % (V2)} m^3 or {'%.5g' % (V2 * 1000000)} cm^3")
 
-#celsius to kelvin
-def CtoK(degc : float):
-    degk = degc + 273
-    return print(f"{degk} K")
-
-#kelvin to celsius
-def KtoC(degk : float):
-    degc = degk - 273
-    return print(f"{degc} °C")
-
 #pressure law
 def pl(p1 : str = None, T1 : str = None, p2 : str = None, T2 : str = None):
     if p1 == None: pass
@@ -767,9 +790,8 @@ def ggl2(p1 : str = None, V1 : str = None, n1 : str = None, T1 : str = None, p2 
 def eom(v : str = None, u : str = None, a : str = None, t : str = None):
     ...
 
+#----------end of physics functions----------#
+
 while True:
     inp = input(">> ")
     eval(inp)
-
-        
-
