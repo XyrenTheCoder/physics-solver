@@ -11,15 +11,14 @@ A simple Physics question solver. (wip)
 - Specific heat capacity: Q = mcΔT -> `shc(Q: Energy, m: Mass, c: Specific heat capacity, dT: Temperature changes)`
 - Specific latent heat: Q = ml -> `slc(Q: Energy, t: Time)`
 - Total energy: E = ml + mcΔT -> `te(E: Total energy, m: Mass, l: Latent heat, c: Specific heat capacity, dT: Temperature changes)`
-- Total energy2 : E = ml + CΔT -> 
-- `te2(E: Total energy, m: Mass, l: Latent heat, C: Heat capacity, dT: Temperature changes)`
+- Total energy2 : E = ml + CΔT -> `te2(E: Total energy, m: Mass, l: Latent heat, C: Heat capacity, dT: Temperature changes)`
 
 <hr>
 <p align=center>=====PRESSURE=====</p>
 <hr>
 
 - Pressure force: p = F / A -> `pf(p: Pressure, F: Force, A: Area)`
-- Boyle's law: p<sub>1</sub>V<sub>1</sub> = p2V2 -> `bl(p1: Pressure before, V1: Volume before, p2: Pressure after, V2: Volume after)
+- Boyle's law: p<sub>1</sub>V<sub>1</sub> = p2V2 -> `bl(p1: Pressure before, V1: Volume before, p2: Pressure after, V2: Volume after)`
 
 ### converter
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
