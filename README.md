@@ -4,15 +4,14 @@ A simple Physics question solver. (wip)
 ## instructions
 Leave parameter blank if it is an unknown. (note: Only **one** unknown per function)
 <hr>
-
-> e.g. Finding the energy produced:<br>
-> `et(P = '200 W', t = '30 s')`<br>
-Value of Q equals to output: `0.006 MJ or 6 kJ or 6000 J`
-
-> e.g. Finding the power needed:
-> `et(Q = '6 kJ', t = '30 s')`
-
-Value of P equals to output: `0.0002 MW or 0.2 kW or 200 W`
+e.g. Finding the energy produced:<br>
+`et(P = '200 W', t = '30 s')`<br>
+> Value of Q equals to output: `0.006 MJ or 6 kJ or 6000 J`
+<hr>
+e.g. Finding the power needed:<br>
+`et(Q = '6 kJ', t = '30 s')`<br>
+> Value of P equals to output: `0.0002 MW or 0.2 kW or 200 W`
+<hr>
 
 Parameters' unit can be ignored if the unit equals to its basic unit.
 
