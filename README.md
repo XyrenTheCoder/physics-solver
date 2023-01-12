@@ -2,7 +2,7 @@
 A simple Physics question solver. (wip)
 
 ## instructions
-Leave parameter blank if it is an unknown.
+Leave parameter blank if it is an unknown. (note: Only **one** unknown per function)
 
 > e.g. Finding the energy produced:
 > `et(P = '200 W', t = '30 s')`
