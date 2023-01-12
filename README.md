@@ -37,7 +37,7 @@ Avaliable units (**all** lowercase are accepted):
 - h, mins, s for t (time)
 - MJ degC-1, kJ degC-1, J degC-1 for C (heat capacity)
 - degC, degK for T (Temperature)
-- degC for dT (delta temperature (changes))
+- degC for dT (delta temperature) (note: Kelvin or Degrees Celsius doesn't affect the changes of temperature)
 - kg, g for m (mass)
 - MJ kg-1 degC-1, kJ kg-1 degC-1, J kg-1 degC-1 for c (specific heat capacity)
 - MJ kg-1, kJ kg-1, J kg-1 for l (latent heat)
