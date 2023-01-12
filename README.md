@@ -88,6 +88,10 @@ Constants are being saved inside `constants.py`.
 
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
 - Energy (Q) to Power (P): P = Q / t -> `QtoP(Q: Energy, t: Time)`
+- Degrees Celsius (°C) to Fahrenheit (°F): F = C * 1.8 + 32 -> `CtoF(degc: Celsius)`
 - Degrees Celsius (°C) to Kelvin (K): K = C + 273 -> `CtoK(degc: Celsius)`
+- Degrees Fahrenheit (°F) to Celsius (°C): C = F / 1.8 - 32 -> `FtoC(degf: Fahrenheit)`
+- Degrees Fahrenheit (°F) to Kelvin (K): K = (F / 1.8 - 32) - 273 -> `FtoK(degf: Fahrenheit)`
 - Kelvin (K) to Degrees Celsius (°C): C = K - 273 -> `KtoC(degk: Kelvin)`
+- Kelvin to Degrees Fahrenheit (°F): F = (K - 273) * 1.8 + 32 -> `KtoF(degk: Kelvin)`
 
