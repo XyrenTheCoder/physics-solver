@@ -3,7 +3,7 @@ A simple Physics question solver. (wip)
 
 ## functions
 <hr>
-<p align=center>-----HEAT-----</p>
+<p align=center>=====HEAT=====</p>
 <hr>
 
 - Energy transfer:  P = Q / T -> `et(P: Power, Q: Energy, T: Temperature)`
@@ -14,7 +14,7 @@ A simple Physics question solver. (wip)
 - Total energy2 : E = ml + CΔT -> `te2(E: Total energy, m: Mass, l: Latent heat, C: Heat capacity, dT: Temperature changes)`
 
 <hr>
-<p align=center>-----PRESSURE-----</p>
+<p align=center>=====PRESSURE=====</p>
 <hr>
 
 ### converter
