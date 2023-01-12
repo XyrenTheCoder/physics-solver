@@ -1,5 +1,15 @@
 
 
+#-----constants-----#
+l_f = 334000 #J kg-1 (specific latent heat of fusion)
+l_v = 2260000 #J kg-1 (specific latent heat of vaporization)
+c_w = 4200 #J kg-1 degC-1 (specific heat capacity of water)
+abszero = 0 #K (absolute zero)
+N_A = 6.02 * (10 ** 23) #(avogadro's const)
+R = 8.31 #J mol-1 K-1 (universal gas const)
+g = 9.80665 #m s-2 (earth's gravital acceleration)
+#-----end of constants-----#
+
 #energy transfer
 def et(P : str = None, Q : str = None, t : str = None):
     if P == None: pass
@@ -169,7 +179,31 @@ def PtoQ(P : str, t : str):
     else:
         t = float(t)
         
-    return print(f"{P * t}")
+    return print(f"{'%.5g' % (P * t / 1000000)} MJ or {'%.5g' % (P * t / 1000)} kJ or {'%.5g' % (P * t)} J")
+
+#energy to power
+def QtoP(Q : str, t : str):
+    if Q == None: pass
+    elif Q.endswith("MJ") or Q.endswith("mj") or Q.endswith("MW h") or Q.endswith("mw h"):
+        Q = float(Q.split()[0]) * 1000000
+    elif Q.endswith("kJ") or Q.endswith("kj") or Q.endswith("kW h") or Q.endswith("kw h"):
+        Q = float(Q.split()[0]) * 1000
+    elif Q.endswith("J") or Q.endswith("j") or Q.endswith("W h") or Q.endswith("w h"):
+        Q = float(Q.split()[0])
+    else:
+        Q = float(Q)
+
+    if t == None: pass
+    elif t.endswith("h"):
+        t = float(t.split()[0]) * 3600
+    elif t.endswith("mins"):
+        t = float(t.split()[0]) * 60
+    elif t.endswith("s"):
+        t = float(t.split()[0])
+    else:
+        t = float(t)
+        
+    return print(f"{'%.5g' % (Q / t / 1000000)} MJ or {'%.5g' % (Q / t / 1000)} kJ or {'%.5g' % (Q / t)} J")
 
 #specific latent heat
 def slh(l : str = None, Q : str = None, m : str = None):
@@ -290,11 +324,11 @@ def te(E : str = None, m : str = None, l : str = None, c : str = None, dT : str 
 #pressure force
 def pf(p : str = None, F : str = None, A : str = None):
     if p == None: pass
-    elif p.endswith("MPa") or p.endswith("mpa") or p.endswith("N m-2") or p.endswith("n m-2"):
+    elif p.endswith("MPa") or p.endswith("mpa"):
         p = float(p.split()[0]) * 1000000
     elif p.endswith("kPa") or p.endswith("kpa"):
         p = float(p.split()[0]) * 1000
-    elif p.endswith("Pa") or p.endswith("pa"):
+    elif p.endswith("Pa") or p.endswith("pa") or p.endswith("N m-2") or p.endswith("n m-2"):
         p = float(p.split()[0])
     else:
         p = float(p)
@@ -331,38 +365,38 @@ def pf(p : str = None, F : str = None, A : str = None):
 #boyle's law
 def bl(p1 : str = None, V1 : str = None, p2 : str = None, V2 : str = None):
     if p1 == None: pass
-    elif p1.endswith("MPa") or p1.endswith("mpa") or p1.endswith("N m-2") or p1.endswith("n m-2"):
+    elif p1.endswith("MPa") or p1.endswith("mpa"):
         p1 = float(p1.split()[0]) * 1000000
     elif p1.endswith("kPa") or p1.endswith("kpa"):
         p1 = float(p1.split()[0]) * 1000
-    elif p1.endswith("Pa") or p1.endswith("pa"):
+    elif p1.endswith("Pa") or p1.endswith("pa") or p1.endswith("N m-2") or p1.endswith("n m-2"):
         p1 = float(p1.split()[0])
     else:
         p1 = float(p1)
 
     if V1 == None: pass
     elif V1.endswith("cm^3"):
-        V1 = float(V1.split()[0])
+        V1 = float(V1.split()[0]) / 1000000
     elif V1.endswith("m^3"):
-        V1 = float(V1.split()[0]) * 1000000
+        V1 = float(V1.split()[0])
     else:
         V1 = float(V1)
 
     if p2 == None: pass
-    elif p2.endswith("MPa") or p2.endswith("mpa") or p2.endswith("N m-2") or p2.endswith("n m-2"):
+    elif p2.endswith("MPa") or p2.endswith("mpa"):
         p2 = float(p2.split()[0]) * 1000000
     elif p2.endswith("kPa") or p2.endswith("kpa"):
         p2 = float(p2.split()[0]) * 1000
-    elif p2.endswith("Pa") or p2.endswith("pa"):
+    elif p2.endswith("Pa") or p2.endswith("pa") or p2.endswith("N m-2") or p2.endswith("n m-2"):
         p2 = float(p2.split()[0])
     else:
         p2 = float(p2)
 
     if V2 == None: pass
     elif V2.endswith("cm^3"):
-        V2 = float(V2.split()[0])
+        V2 = float(V2.split()[0]) / 1000000
     elif V2.endswith("m^3"):
-        V2 = float(V2.split()[0]) * 1000000
+        V2 = float(V2.split()[0])
     else:
         V2 = float(V2)
 
@@ -373,9 +407,265 @@ def bl(p1 : str = None, V1 : str = None, p2 : str = None, V2 : str = None):
 
     elif p1 != None and V1 == None and p2 != None and V2 != None:
         V1 = (p2 * V2) / p1
-        #base unit: cm^3 or m^3 because idk which one is the common one
-        return print(f"{'%.5g' % (V1 / 1000000000)} m^3 or {'%.5g' % (V1 / 1000)} cm^3")
+        #base unit: cm^3 or m^3 (if the input value of V2 is m^3, take m^3 as common unit (use the same unit as input)
+        return print(f"{'%.5g' % (V1)} m^3 or {'%.5g' % (V1 * 1000000)} cm^3")
 
+    elif p1 != None and V1 != None and p2 == None and V2 != None:
+        p2 = (p1 * V1) / V2
+        #base unit: Pa
+        return print(f"{'%.5g' % (p2 / 1000)} kPa or {'%.5g' % (p2)} Pa")
+    
+    elif p1 != None and V1 != None and p2 != None and V2 == None:
+        V2 = (p1 * V1) / p2
+        #base unit: cm^3 or m^3 (if the input value of V1 is m^3, take m^3 as common unit (use the same unit as input))
+        return print(f"{'%.5g' % (V2)} m^3 or {'%.5g' % (V2 * 1000000)} cm^3")
+
+#celsius to kelvin
+def CtoK(degc : float):
+    degk = degc + 273
+    return print(f"{degk} K")
+
+#kelvin to celsius
+def KtoC(degk : float):
+    degc = degk - 273
+    return print(f"{degc} °C")
+
+#pressure law
+def pl(p1 : str = None, T1 : str = None, p2 : str = None, T2 : str = None):
+    if p1 == None: pass
+    elif p1.endswith("MPa") or p1.endswith("mpa"):
+        p1 = float(p1.split()[0]) * 1000000
+    elif p1.endswith("kPa") or p1.endswith("kpa"):
+        p1 = float(p1.split()[0]) * 1000
+    elif p1.endswith("Pa") or p1.endswith("pa") or p1.endswith("N m-2") or p1.endswith("n m-2"):
+        p1 = float(p1.split()[0])
+    else:
+        p1 = float(p1)
+
+    if T1 == None: pass
+    elif T1.endswith("degC") or T1.endswith("degc"):
+        T1 = float(T1.split()[0]) + 273
+    elif T1.endswith("K") or T1.endswith("k"):
+        T1 = float(T1.split()[0])
+    else:
+        T1 = float(T1)
+
+    if p2 == None: pass
+    elif p2.endswith("MPa") or p2.endswith("mpa"):
+        p2 = float(p2.split()[0]) * 1000000
+    elif p2.endswith("kPa") or p2.endswith("kpa"):
+        p2 = float(p2.split()[0]) * 1000
+    elif p2.endswith("Pa") or p2.endswith("pa") or p2.endswith("N m-2") or p2.endswith("n m-2"):
+        p2 = float(p2.split()[0])
+    else:
+        p2 = float(p2)
+
+    if T2 == None: pass
+    elif T2.endswith("degC") or T2.endswith("degc"):
+        T2 = float(T2.split()[0]) + 273
+    elif T2.endswith("K") or T2.endswith("k"):
+        T2 = float(T2.split()[0])
+    else:
+        T2 = float(T2)
+
+    if p1 == None and T1 != None and p2 != None and T2 != None:
+        p1 = (p2 / T2) * T1
+        #base unit: Pa
+        return print(f"{'%.5g' % (p1 / 1000)} kPa or {'%.5g' % (p1)} Pa")
+
+    elif p1 != None and T1 == None and p2 != None and T2 != None:
+        T1 = (T2 / p2) * p1
+        #base unit: K
+        return print(f"{T1} K")
+
+    elif p1 != None and T1 != None and p2 == None and T2 != None:
+        p2 = (p1 / T1) * T2
+        #base unit: Pa
+        return print(f"{'%.5g' % (p2 / 1000)} kPa or {'%.5g' % (p2)} Pa")
+
+    elif p1 != None and T1 != None and p2 != None and T2 == None:
+        T2 = (T1 / p1) * p2
+        #base unit: K
+        return print(f"{T2} K")
+
+#charles' law
+def cl(V1 : str = None, T1 : str = None, V2 : str = None, T2 : str = None):
+    if V1 == None: pass
+    elif V1.endswith("cm^3"):
+        V1 = float(V1.split()[0]) / 1000000
+    elif V1.endswith("m^3"):
+        V1 = float(V1.split()[0])
+    else:
+        V1 = float(V1)
+
+    if T1 == None: pass
+    elif T1.endswith("degC") or T1.endswith("degc"):
+        T1 = float(T1.split()[0]) + 273
+    elif T1.endswith("K") or T1.endswith("k"):
+        T1 = float(T1.split()[0])
+    else:
+        T1 = float(T1)
+
+    if V2 == None: pass
+    elif V2.endswith("cm^3"):
+        V2 = float(V2.split()[0]) / 1000000
+    elif V2.endswith("m^3"):
+        V2 = float(V2.split()[0])
+    else:
+        V2 = float(V2)
+
+    if T2 == None: pass
+    elif T2.endswith("degC") or T2.endswith("degc"):
+        T2 = float(T2.split()[0]) + 273
+    elif T2.endswith("K") or T2.endswith("k"):
+        T2 = float(T2.split()[0])
+    else:
+        T2 = float(T2)
+
+    if V1 == None and T1 != None and V2 != None and T2 != None:
+        V1 = (V2 / T2) * T1
+        #base unit: m^3
+        return print(f"{'%.5g' % (V1)} m^3 or {'%.5g' % (V1 * 1000000)} cm^3")
+
+    elif V1 != None and T1 == None and V2 != None and T2 != None:
+        T1 = (T2 / V2) * V1
+        #base unit: K
+        return print(f"{T1} K")
+
+    elif V1 != None and T1 != None and V2 == None and T2 != None:
+        V2 = (V1 / T1) * T2
+        #base unit: m^3
+        return print(f"{'%.5g' % (V2)} m^3 or {'%.5g' % (V2 * 1000000)} cm^3")
+
+    elif V1 != None and T1 != None and V2 != None and T2 == None:
+        T2 = (T1 / V1) * V2
+        #base unit: K
+        return print(f"{T2} K")
+
+#general gas law
+def ggl(p : str = None, V : str = None, n : str = None, T : str = None):
+    if p == None: pass
+    elif p.endswith("MPa") or p.endswith("mpa"):
+        p = float(p.split()[0]) * 1000000
+    elif p.endswith("kPa") or p.endswith("kpa"):
+        p = float(p.split()[0]) * 1000
+    elif p.endswith("Pa") or p.endswith("pa") or p.endswith("N m-2") or p.endswith("n m-2"):
+        p = float(p.split()[0])
+    else:
+        p = float(p)
+
+    if V == None: pass
+    elif V.endswith("cm^3"):
+        V = float(V.split()[0]) / 1000000
+    elif V.endswith("m^3"):
+        V = float(V.split()[0])
+    else:
+        V = float(V)
+
+    if n == None: pass
+    elif n.endswith("mol"):
+        n = float(n.split()[0])
+    else:
+        n = float(n)
+
+    if T == None: pass
+    elif T.endswith("degC") or T.endswith("degc"):
+        T = float(T.split()[0]) + 273
+    elif T.endswith("K") or T.endswith("k"):
+        T = float(T.split()[0])
+    else:
+        T = float(T)
+
+    if p == None and V != None and n != None and T != None:
+        p = (n * R * T) / V
+        #base unit: Pa
+        return print(f"{'%.5g' % (p / 1000)} kPa or {'%.5g' % (p)} Pa")
+
+    elif p != None and V == None and n != None and T != None:
+        V = (n * R * T) / p
+        #base unit: m^3
+        return print(f"{'%.5g' % (V)} m^3 or {'%.5g' % (V * 1000000)} cm^3")
+
+    elif p != None and V != None and n == None and T != None:
+        n = (p * V) / (R * T)
+        #base unit: mol
+        return print(f"{'%.5g' % (n)} mol")
+
+    elif p != None and V != None and n != None and T == None:
+        T = (p * V) / (n * R)
+        #base unit: K
+        return print(f"{T} K")
+
+#pressure, volume, mole, and temperature ratio formula (transformed by the general gas law)
+def ggl2(p1 : str = None, V1 : str = None, n1 : str = None, T1 : str = None, p2 : str = None, V2 : str = None, n2 : str = None, T2 : str = None):
+    if p1 == None: pass
+    elif p1.endswith("MPa") or p1.endswith("mpa"):
+        p1 = float(p1.split()[0]) * 1000000
+    elif p1.endswith("kPa") or p1.endswith("kpa"):
+        p1 = float(p1.split()[0]) * 1000
+    elif p1.endswith("Pa") or p1.endswith("pa") or p1.endswith("N m-2") or p1.endswith("n m-2"):
+        p1 = float(p1.split()[0])
+    else:
+        p1 = float(p1)
+
+    if V1 == None: pass
+    elif V1.endswith("cm^3"):
+        V1 = float(V1.split()[0]) / 1000000
+    elif V1.endswith("m^3"):
+        V1 = float(V1.split()[0])
+    else:
+        V1 = float(V1)
+
+    if n1 == None: pass
+    elif n1.endswith("mol"):
+        n1 = float(n1.split()[0])
+    else:
+        n1 = float(n1)
+    
+    if T1 == None: pass
+    elif T1.endswith("degC") or T1.endswith("degc"):
+        T1 = float(T1.split()[0]) + 273
+    elif T1.endswith("K") or T1.endswith("k"):
+        T1 = float(T1.split()[0])
+    else:
+        T1 = float(T1)
+
+    if p2 == None: pass
+    elif p2.endswith("MPa") or p2.endswith("mpa"):
+        p2 = float(p2.split()[0]) * 1000000
+    elif p2.endswith("kPa") or p2.endswith("kpa"):
+        p2 = float(p2.split()[0]) * 1000
+    elif p2.endswith("Pa") or p2.endswith("pa") or p2.endswith("N m-2") or p2.endswith("n m-2"):
+        p2 = float(p2.split()[0])
+    else:
+        p2 = float(p2)
+
+    if V2 == None: pass
+    elif V2.endswith("cm^3"):
+        V2 = float(V2.split()[0]) / 1000000
+    elif V2.endswith("m^3"):
+        V2 = float(V2.split()[0])
+    else:
+        V2 = float(V2)
+
+    if n2 == None: pass
+    elif n2.endswith("mol"):
+        n2 = float(n2.split()[0])
+    else:
+        n2 = float(n2)
+    
+    if T2 == None: pass
+    elif T2.endswith("degC") or T2.endswith("degc"):
+        T2 = float(T2.split()[0]) + 273
+    elif T2.endswith("K") or T2.endswith("k"):
+        T2 = float(T2.split()[0])
+    else:
+        T2 = float(T2)
+
+    if p1 == None and V1 != None and n1 != None and T1 != None and p2 != None and V2 != None and n2 != None and T2 != None:
+        p1 = ((p2 * V2) / (n2 * T2)) * (n1 * T1) / V1
+        #base unit: Pa
+        return print(f"{'%.5g' % (p / 1000)} kPa or {'%.5g' % (p)} Pa")
 
 while True:
     inp = input(">> ")
