@@ -27,7 +27,7 @@ e.g. Watt for power and seconds for time<br>
 > `et(P = '200', t = '30')`
 
 e.g. Joules for energy<br>
-> `et(Q = '6000', t = '30')`
+> `et(Q = '6000', t = '30')` (note: In this case, you **must** convert the unit 'kJ' to 'J' first in order to operate correctly as 'J' is the basic unit for energy)
 
 <hr>
 
