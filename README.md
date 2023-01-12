@@ -33,7 +33,7 @@ e.g. *Joules* for *energy* (note: In this case, you ***must*** convert `'6 kJ'` 
 
 Avaliable units (***all*** lowercase are accepted):
 - `MW`, `kW`, `W` for *P (power)*
-- `MJ`, `MW h`, `kJ`, `kW h`, `J`, `W h` for *Q (energy) * and *E (total energy)*
+- `MJ`, `MW h`, `kJ`, `kW h`, `J`, `W h` for *Q (energy)* and *E (total energy)*
 - `h`, `mins`, `s` for *t (time)*
 - `MJ degC-1`, `kJ degC-1`, `J degC-1` for *C (heat capacity)*
 - `degC`, `degK` for *T (Temperature)*
