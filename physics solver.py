@@ -693,7 +693,8 @@ def ggl2(p1 : str = None, V1 : str = None, n1 : str = None, T1 : str = None, p2 
         return print(f"{T1} K")
 
 #equations of motion1 (v = u + at)
-
+def eom(v : str = None, u : str = None, a : str = None, t : str = None):
+    ...
 
 while True:
     inp = input(">> ")
