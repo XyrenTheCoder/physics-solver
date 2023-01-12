@@ -2,6 +2,9 @@
 A simple Physics question solver. (wip)
 
 ## instructions
+
+<hr>
+
 0. Leave parameter blank if it is an unknown. (note: Only **one** unknown per function)
 
 <hr>
