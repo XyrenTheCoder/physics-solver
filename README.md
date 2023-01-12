@@ -18,7 +18,7 @@ A simple Physics question solver. (wip)
 <hr>
 
 - Pressure force: p = F / A -> `pf(p: Pressure, F: Force, A: Area)`
-- Boyle's law: p$_1$V$_1$ = p_2V_2
+- Boyle's law: p$_{1}$V$_{1}$ = p_2V_2
 
 ### converter
 - Power (P) to Energy (Q): Q = P / t -> `PtoQ(P: Power, t: Time)`
