@@ -34,6 +34,8 @@ e.g. Joules for energy (note: In this case, you **must** convert `'6 kJ'` to `'6
 Avaliable units include:
 - MW, kW, W for P (power)
 - MJ, kJ, J for Q (energy)
+- h, mins, s for t (time)
+- MJ degC-1, kJ degC-1, J degC-1 for C (heat capacity)
 
 ... etc.
 
