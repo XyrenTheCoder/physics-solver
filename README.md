@@ -2,7 +2,7 @@
 A simple Physics question solver. (wip)
 
 ## functions
-- Energy transfer: > P = Q / T -> `et(P: Power, Q: Energy, T: Temperature)`
+- Energy transfer:  P = Q / T -> `et(P: Power, Q: Energy, T: Temperature)`
 - Heat capacity: Q = CΔT -> `hc(Q: Energy, C: Heat capacity, dT: Temperature changes)`
 - Specific heat capacity: Q = mcΔT -> `shc(Q: Energy, m: Mass, c: Specific heat capacity, dT: Temperature changes)`
 - Specific latent heat: Q = ml -> `slc(Q: Energy, t: Time)`
