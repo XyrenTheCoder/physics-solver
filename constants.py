@@ -5,5 +5,5 @@ c_w = 4200 #J kg-1 degC-1 (specific heat capacity of water)
 abszero = 0 #K (absolute zero)
 N_A = 6.02 * (10 ** 23) #(avogadro's const)
 R = 8.31 #J mol-1 K-1 (universal gas const)
-g = 9.80665 #m s-2 (earth's gravital acceleration)
+g = 9.80665 #m s-2 (earth's gravity acceleration, not a constant but it is defined here anyway)
 #-----end of constants-----#
