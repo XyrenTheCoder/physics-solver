@@ -32,20 +32,20 @@ e.g. Joules for energy (note: In this case, you **must** convert `'6 kJ'` to `'6
 <hr>
 
 Avaliable units (**all** lowercase are accepted):
-- MW, kW, W for P (power)
-- MJ, kJ, J for Q and E(energy)
-- h, mins, s for t (time)
-- MJ degC-1, kJ degC-1, J degC-1 for C (heat capacity)
-- degC, degK for T (Temperature)
-- degC for dT (delta temperature) (note: Kelvin or Degrees Celsius doesn't affect the changes of temperature)
-- kg, g for m (mass)
-- MJ kg-1 degC-1, kJ kg-1 degC-1, J kg-1 degC-1 for c (specific heat capacity)
-- MJ kg-1, kJ kg-1, J kg-1 for l (latent heat)
-- MPa, kPa, Pa for p (pressure)
-- N for F (force)
-- m^2, cm^2 for A (area)
-- m^3, cm^3 for V (Volume)
-- mol for n (mole number)
+- `MW`, `kW`, `W` for *P (power)*
+- `MJ`, `kJ`, `J` for Q and E(energy)
+- `h`, `mins`, `s` for t (time)
+- `MJ degC-1`, `kJ degC-1`, `J degC-1` for C (heat capacity)
+- `degC`, `degK` for T (Temperature)
+- `degC` for dT (delta temperature) (note: Kelvin or Degrees Celsius doesn't affect the changes of temperature)
+- `kg`, `g` for m (mass)
+- `MJ kg-1 degC-1`, `kJ kg-1 degC-1`, `J kg-1 degC-1` for c (specific heat capacity)
+- `MJ kg-1`, `kJ kg-1`, `J kg-1` for l (latent heat)
+- `MPa`, `kPa`, `Pa` for p (pressure)
+- `N` for F (force)
+- `m^2`, `cm^2` for A (area)
+- `m^3`, `cm^3` for V (Volume)
+- `mol` for n (mole number)
 
 
 ... etc.
