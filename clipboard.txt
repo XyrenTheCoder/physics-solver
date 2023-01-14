@@ -1,0 +1,60 @@
+    except UnitError:
+        return print(f"Unit incorrect or invalid, please use a valid unit.")
+    
+    
+    elif not P.isalnum() and P.lower() not in StandardUnits.UNITP:
+            raise UnitError
+
+    elif not Q.isalnum() and Q.lower() not in StandardUnits.UNITQ:
+            raise UnitError
+
+    elif not t.isalnum() and t.lower() not in StandardUnits.UNITt:
+            raise UnitError
+
+    elif not C.isalnum() and C.lower() not in StandardUnits.UNITC:
+            raise UnitError
+
+    elif not dT.isalnum() and dT.lower() not in StandardUnits.UNITdT:
+            raise UnitError
+
+    elif not m.isalnum() and m.lower() not in StandardUnits.UNITm:
+            raise UnitError
+
+    elif not c.isalnum() and c.lower() not in StandardUnits.UNITc:
+            raise UnitError
+
+    elif not l.isalnum() and l.lower() not in StandardUnits.UNITl:
+            raise UnitError
+
+    elif not E.isalnum() and E.lower() not in StandardUnits.UNITE:
+            raise UnitError
+
+    elif not p.isalnum() and p.lower() not in StandardUnits.UNITp:
+            raise UnitError
+
+    elif not F.isalnum() and F.lower() not in StandardUnits.UNITF:
+            raise UnitError
+
+    elif not A.isalnum() and A.lower() not in StandardUnits.UNITA:
+            raise UnitError
+
+    elif not V.isalnum() and V.lower() not in StandardUnits.UNITV:
+            raise UnitError
+
+    elif not T.isalnum() and T.lower() not in StandardUnits.UNITT:
+            raise UnitError
+
+    elif not n.isalnum() and n.lower() not in StandardUnits.UNITn:
+            raise UnitError
+
+    elif not v.isalnum() and v.lower() not in StandardUnits.UNITv:
+            raise UnitError
+
+    elif not u.isalnum() and u.lower() not in StandardUnits.UNITu:
+            raise UnitError
+
+    elif not a.isalnum() and a.lower() not in StandardUnits.UNITa:
+            raise UnitError
+
+    elif not s.isalnum() and s.lower() not in StandardUnits.UNITs:
+            raise UnitError
