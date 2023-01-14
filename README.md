@@ -31,24 +31,8 @@ e.g. *Joules* for *energy* (note: In this case, you ***must*** convert `'6 kJ'` 
 
 <hr>
 
-Avaliable units (***all*** lowercase are accepted):
-- `MW`, `kW`, `W` for *P (power)*
-- `MJ`, `MW h`, `kJ`, `kW h`, `J`, `W h` for *Q (energy)* and *E (total energy)*
-- `h`, `mins`, `s` for *t (time)*
-- `MJ degC-1`, `kJ degC-1`, `J degC-1` for *C (heat capacity)*
-- `degC`, `degK` for *T (temperature)*
-- `degC` for *dT (delta temperature)* (note: Kelvin or Degrees Celsius doesn't affect the changes of temperature)
-- `kg`, `g` for *m (mass)*
-- `MJ kg-1 degC-1`, `kJ kg-1 degC-1`, `J kg-1 degC-1` for *c (specific heat capacity)*
-- `MJ kg-1`, `kJ kg-1`, `J kg-1` for *l (latent heat)*
-- `MPa`, `kPa`, `Pa` for *p (pressure)*
-- `N` for *F (force)*
-- `m^2`, `cm^2` for *A (area)*
-- `m^3`, `cm^3` for *V (Volume)*
-- `mol` for *n (mole number)*
-
-
-... etc.
+## units
+For avaliable units (original cases and ***all*** lowercase are accepted) are being saved inside `standard_units.py`
 
 ## constants
 Constants are being saved inside `constants.py`.
@@ -81,6 +65,16 @@ Constants are being saved inside `constants.py`.
 
 - General gas law: pV = nRT -> `ggl(p: Pressure, V: Volume, n: Mole number, T: Temperature)`
 - Transformed ratio formula: p<sub>1</sub>V<sub>1</sub> / n<sub>1</sub>T<sub>1</sub> = p<sub>2</sub>V<sub>2</sub> / n<sub>2</sub>T<sub>2</sub> -> `ggl2(p1: Pressure before, V1: Volume before, n1: Mole before, T1: Temperature before, p2: Pressure after, V2: Volume after, n2: Mole after, T2: Temperature after)`
+
+<hr>
+<p align=center>=====MOTION=====</p>
+<hr>
+
+- Equations of motion1: v = u + at - ``
+- Equations of motion2: s = 1/2(u + v)t^2
+- Equations of motion3:
+- Equations of motion4: v^2 = u^2 + 2as
+- Transformed ratio formula:
 
 <hr>
 <p align=center>=====CONVERTERS=====</p>
